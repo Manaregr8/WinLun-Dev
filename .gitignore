@@ -1,0 +1,50 @@
+# --- Python Cache & Bytecode ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+.env*/
+
+# --- Package / Build ---
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Databases / Cache ---
+*.sqlite3
+*.db
+*.db-journal
+
+# --- Logs ---
+*.log
+*.out
+*.err
+
+# --- OS / Editor Junk ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- GeoLite2 DB (hackathon specific) ---
+*.mmdb
+
+# --- Misc ---
+*.bak
+*.swp
+*.swo
+*.tmp
