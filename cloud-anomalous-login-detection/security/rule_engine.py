@@ -1,3 +1,7 @@
+# security/rule_engine.py
+
+import json
+import os
 from datetime import datetime
 from geopy.distance import geodesic
 from security.geoip_enrich import ip_to_geo
@@ -5,9 +9,18 @@ from security.geoip_enrich import ip_to_geo
 # In-memory store of last logins
 user_last_login = {}
 
+# File to store evaluated results
+RESULTS_FILE = "login_results.json"
+
+# Initialize file if not exists
+if not os.path.exists(RESULTS_FILE):
+    with open(RESULTS_FILE, "w") as f:
+        json.dump([], f)
+
+
 def evaluate_login(event: dict) -> dict:
     """
-    Evaluate a login event with anomaly rules.
+    Evaluate a login event with anomaly rules and store results.
     event = {
         "user_id": str,
         "timestamp": str (ISO format),
@@ -20,6 +33,7 @@ def evaluate_login(event: dict) -> dict:
     reasons = []
     risk = 0
 
+    # Geo lookup
     geo = ip_to_geo(event["ip"])
     event["geo"] = geo
     now = datetime.fromisoformat(event["timestamp"])
@@ -36,7 +50,9 @@ def evaluate_login(event: dict) -> dict:
             time_diff = (now - last["timestamp"]).total_seconds() / 3600.0
             if time_diff > 0 and dist / time_diff > 800:  # ~plane speed
                 risk += 50
-                reasons.append(f"Impossible travel: {dist:.0f} km in {time_diff:.2f} hr")
+                reasons.append(
+                    f"Impossible travel: {dist:.0f} km in {time_diff:.2f} hr"
+                )
         except Exception:
             pass
 
@@ -68,9 +84,19 @@ def evaluate_login(event: dict) -> dict:
         "browser": event["browser"],
     }
 
-    return {
+    result = {
         "user_id": user_id,
         "risk_score": min(risk, 100),
         "reasons": reasons or ["No anomalies detected"],
         "geo": geo,
+        "timestamp": event["timestamp"],
     }
+
+    # Persist results to JSON file
+    with open(RESULTS_FILE, "r+") as f:
+        results = json.load(f)
+        results.append(result)
+        f.seek(0)
+        json.dump(results, f, indent=2)
+
+    return result

@@ -1,26 +1,22 @@
-import time
-import random
+import time, json
+
 from security.rule_engine import evaluate_login
 from security.explainability import explain_result
 from security.alerts import send_email_alert
 
-test_ips = ["106.219.231.25", "8.8.8.8", "1.1.1.1"]
-devices = ["dev1", "dev2"]
-browsers = ["Chrome", "firefox"]
+DATA_FILE = "login_events.json"
+processed_count = 0
 
-def generate_event(user_id = "u1"):
-    return{
-        "user_id": user_id,
-        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"),
-        "ip": random.choice(test_ips),
-        "device_id": random.choice(devices),
-        "browser": random.choice(browsers)
-    }
+while True:
+    with open(DATA_FILE, "r") as f:
+        events = json.load(f)
 
-if __name__ == "__main__":
-    for i in range(5):
-        event = generate_event()
+    # Process only new events
+    new_events = events[processed_count:]
+    for event in new_events:
         result = evaluate_login(event)
         send_email_alert(result)
         print(explain_result(result))
-        time.sleep(2)
+        processed_count += 1
+
+    time.sleep(2)
