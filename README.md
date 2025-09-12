@@ -1,37 +1,69 @@
-# Cloud Anomalous Login Detection
+# AI for Detecting Anomalous Logins in Cloud Environments
 
 ## Overview
-This project is designed to detect anomalous login activities in cloud-based applications by leveraging a combination of rules, machine learning, and deep learning models. The system ingests login events, processes them through a scoring pipeline, and assigns risk levels that determine whether the login should be allowed, challenged (MFA), or blocked.
+With the rise of remote work and cloud services, attackers increasingly use stolen credentials to log in from unusual locations, devices, or times. Traditional security systems often fail to detect such subtle anomalies.  
+This project provides an **AI/ML-powered anomaly detection system** that analyzes login patterns (geo-location, device fingerprinting, login time, and behavioral features) to detect, flag, and alert suspicious logins in real-time.
 
-The detection system uses:
-- Rule-based checks (impossible travel, unusual login times, device changes).
-- Isolation Forest for unsupervised anomaly detection.
-- PyTorch Autoencoder for reconstruction-based anomaly detection.
-- Ensemble scoring for final risk classification.
+Built during a hackathon, the solution is designed for **fast prototyping**, **hackathon demo readiness**, and **practical real-world extension**.
+
+---
+
+## Problem Statement
+- Detect anomalous logins in cloud environments where attackers use stolen credentials.
+- Analyze login events for unusual behavior such as:
+  - Impossible travel (geo-location anomalies).
+  - Suspicious device fingerprints.
+  - Odd login times.
+  - Behavior deviating from user baseline.
+- Flag anomalies without disrupting legitimate users.
+
+---
+
+## Solution
+Our system combines **synthetic data generation, ML-based anomaly detection, and real-time alerting**:
+
+1. **Synthetic Dataset Generator** – creates realistic login events (IP, geo-location, device, login time, user activity).
+2. **Feature Engineering** – converts raw login logs into numerical features.
+3. **ML Models**  
+   - Isolation Forest (scikit-learn)  
+   - Autoencoder (PyTorch)  
+   - Ensemble scoring for robustness
+4. **Real-Time Processing** – login events pushed via API → queued → scored by worker.
+5. **Dashboard & Alerts** – anomalies visualized, alerts triggered for suspicious logins.
 
 ---
 
 ## System Architecture
----
 
-## Tech Stack
-
-- **Backend:** FastAPI, Redis, Docker/Docker Compose  
-- **ML/DL:** Scikit-learn (Isolation Forest), PyTorch (Autoencoder)  
-- **Data:** Synthetic dataset generator  
-- **Visualization:** Matplotlib for reports, optional Streamlit dashboard  
-- **Packaging:** Joblib, Torch `.pth` models, JSON statistics  
-
----
-
-## Setup and Installation
-
-Clone the repository:
-```bash
-git clone https://github.com/<your-org>/cloud-anomalous-login-detection.git
-cd cloud-anomalous-login-detection
-
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1   # Windows PowerShell
-
-
+```text
+                      +----------------------+
+                      |  Cloud Applications  |
+                      +----------+-----------+
+                                 |
+                                 v
+                      +----------------------+
+                      |      API (FastAPI)   |
+                      +----------+-----------+
+                                 |
+                                 v
+                        +----------------+
+                        |   Redis Queue   |
+                        +--------+--------+
+                                 |
+                                 v
+                +---------------------------------------+
+                |        Worker (Scoring Engine)        |
+                |---------------------------------------|
+                |  - Feature extraction                 |
+                |  - Rule-based checks                  |
+                |  - Isolation Forest model             |
+                |  - Autoencoder (PyTorch)              |
+                |  - Ensemble scoring (final risk)      |
+                +----------------+----------------------+
+                                 |
+               +-----------------+-------------------+
+               |                                     |
+               v                                     v
+     +---------------------+              +----------------------+
+     | Alerts & Dashboard  |              |    Audit Logs        |
+     +---------------------+              +----------------------+
