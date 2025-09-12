@@ -77,6 +77,18 @@ Our system combines **synthetic data generation, ML-based anomaly detection, and
 - Scalable Architecture: Designed for cloud environments with support for integration into major cloud security platforms.
 - Sample Dataset & Notebooks: Includes datasets simulating real login scenarios and Jupyter notebooks for model analysis.
 
+### Dataset Structure
+#### Each login record should contain:
+- User ID
+- Timestamp
+- Login Status (success/failure)
+- IP Address
+- Device Type
+- Location
+- Session Duration
+- Failed Attempts
+- Behavioral Score
+
 
 
 
