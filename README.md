@@ -45,7 +45,9 @@ Our system combines **synthetic data generation, ML-based anomaly detection, and
                                  |
                                  v
                         +----------------+
-                        |   Redis Queue   |
+                        |   Redis Queue  |
+                        | (in-memory     |
+                        | store for demo)|               
                         +--------+--------+
                                  |
                                  v
