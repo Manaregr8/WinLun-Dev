@@ -1,0 +1,1 @@
+{"if_mean": 0.4769948927766238, "if_std": 0.06117527614991963, "features": ["hour_of_day", "day_of_week", "delta_minutes", "geodistance_km", "device_change", "failed_prev_5"]}

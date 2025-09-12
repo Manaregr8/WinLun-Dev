@@ -1,0 +1,1 @@
+{"ae_mean": 0.9518836140632629, "ae_std": 0.7068823575973511, "features": ["hour_of_day", "day_of_week", "delta_minutes", "geodistance_km", "device_change", "failed_prev_5"]}
