@@ -20,7 +20,6 @@ def evaluate_login(event: dict) -> dict:
     reasons = []
     risk = 0
 
-    # Enrich with geo info
     geo = ip_to_geo(event["ip"])
     event["geo"] = geo
     now = datetime.fromisoformat(event["timestamp"])

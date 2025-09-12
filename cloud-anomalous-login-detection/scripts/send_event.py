@@ -1,6 +1,8 @@
 import time
 import random
 from security.rule_engine import evaluate_login
+from security.explainability import explain_result
+from security.alerts import send_email_alert
 
 test_ips = ["106.219.231.25", "8.8.8.8", "1.1.1.1"]
 devices = ["dev1", "dev2"]
@@ -19,5 +21,6 @@ if __name__ == "__main__":
     for i in range(5):
         event = generate_event()
         result = evaluate_login(event)
-        print(result)
+        send_email_alert(result)
+        print(explain_result(result))
         time.sleep(2)
