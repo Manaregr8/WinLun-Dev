@@ -69,22 +69,5 @@ Our system combines **synthetic data generation, ML-based anomaly detection, and
      +---------------------+              +----------------------+
 
 
-## Tech Stack
-
-- **Backend:** FastAPI, Redis, Docker/Docker Compose  
-- **ML/DL:** Scikit-learn (Isolation Forest), PyTorch (Autoencoder)  
-- **Data:** Synthetic dataset generator  
-- **Visualization:** Matplotlib for reports, optional Streamlit dashboard  
-- **Packaging:** Joblib, Torch `.pth` models, JSON statistics  
-
----
-
-## Setup and Installation
-
-Clone the repository:
-```bash
-git clone https://github.com/<your-org>/cloud-anomalous-login-detection.git
-cd cloud-anomalous-login-detection
-
 
 
