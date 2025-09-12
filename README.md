@@ -13,33 +13,6 @@ The detection system uses:
 
 ## System Architecture
 ---
-cloud-anomalous-login-detection/
-├─ api/ # FastAPI service
-│ └─ main.py
-├─ worker/ # Feature extraction & scoring engine
-│ ├─ features.py
-│ ├─ train_if.py
-│ ├─ train_ae_pytorch.py
-│ ├─ ensemble.py
-│ ├─ eval.py
-│ └─ worker.py
-├─ data/
-│ └─ generate_synthetic.py
-├─ models/ # Trained artifacts (created after training)
-│ ├─ isolation_forest.joblib
-│ ├─ autoencoder.pth
-│ ├─ scaler.pkl
-│ ├─ if_stats.json
-│ └─ ae_stats.json
-├─ scripts/
-│ └─ send_event.py # Replay synthetic events
-├─ reports/ # Evaluation charts
-├─ requirements.txt
-└─ README.md
----
-
-
----
 
 ## Tech Stack
 
