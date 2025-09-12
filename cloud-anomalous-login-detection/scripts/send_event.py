@@ -19,7 +19,7 @@ browsers = ["Chrome", "firefox"]
 
 FAIL_PROBABILITY = 0.3  # probability each generated login is an authentication FAILURE (for demo)
 LOCK_ON_SCORE_THRESHOLD = 70
-SEND_EMAIL_ON_LOCK = True  # sends email if set as true
+SEND_EMAIL_ON_LOCK = False  # sends email if set as true
 
 def generate_event(user_id = "u1"):
     return{
