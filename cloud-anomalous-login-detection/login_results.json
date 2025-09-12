@@ -1,0 +1,101 @@
+[
+  {
+    "user_id": "u1",
+    "risk_score": 0,
+    "reasons": [
+      "No anomalies detected"
+    ],
+    "geo": {
+      "ip": "106.219.231.25",
+      "continent": "Asia",
+      "country": "India",
+      "city": "New Delhi",
+      "latitude": 28.6327,
+      "longitude": 77.2198
+    },
+    "timestamp": "2025-09-12T14:39:04"
+  },
+  {
+    "user_id": "u1",
+    "risk_score": 0,
+    "reasons": [
+      "No anomalies detected"
+    ],
+    "geo": {
+      "ip": "106.219.231.25",
+      "continent": "Asia",
+      "country": "India",
+      "city": "New Delhi",
+      "latitude": 28.6327,
+      "longitude": 77.2198
+    },
+    "timestamp": "2025-09-12T14:39:06"
+  },
+  {
+    "user_id": "u1",
+    "risk_score": 0,
+    "reasons": [
+      "No anomalies detected"
+    ],
+    "geo": {
+      "ip": "106.219.231.25",
+      "continent": "Asia",
+      "country": "India",
+      "city": "New Delhi",
+      "latitude": 28.6327,
+      "longitude": 77.2198
+    },
+    "timestamp": "2025-09-12T14:39:11"
+  },
+  {
+    "user_id": "u1",
+    "risk_score": 0,
+    "reasons": [
+      "No anomalies detected"
+    ],
+    "geo": {
+      "ip": "8.8.8.8",
+      "continent": "North America",
+      "country": "United States",
+      "city": null,
+      "latitude": 37.751,
+      "longitude": -97.822
+    },
+    "timestamp": "2025-09-12T14:42:22"
+  },
+  {
+    "user_id": "u1",
+    "risk_score": 30,
+    "reasons": [
+      "New device detected",
+      "New browser detected"
+    ],
+    "geo": {
+      "ip": "8.8.8.8",
+      "continent": "North America",
+      "country": "United States",
+      "city": null,
+      "latitude": 37.751,
+      "longitude": -97.822
+    },
+    "timestamp": "2025-09-12T14:42:26"
+  },
+  {
+    "user_id": "u1",
+    "risk_score": 90,
+    "reasons": [
+      "Impossible travel: 10701 km in 0.00 hr",
+      "New browser detected",
+      "New country: None"
+    ],
+    "geo": {
+      "ip": "1.1.1.1",
+      "continent": null,
+      "country": null,
+      "city": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "timestamp": "2025-09-12T14:42:30"
+  }
+]

@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 from geopy.distance import geodesic
 from security.geoip_enrich import ip_to_geo
+from security.explainability import explain_result
 
 # In-memory store of last logins
 user_last_login = {}
@@ -99,4 +100,5 @@ def evaluate_login(event: dict) -> dict:
         f.seek(0)
         json.dump(results, f, indent=2)
 
+    print(explain_result(result))
     return result

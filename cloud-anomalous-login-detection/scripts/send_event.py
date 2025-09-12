@@ -17,7 +17,7 @@ test_ips = ["106.219.231.25", "8.8.8.8", "1.1.1.1"]
 devices = ["dev1", "dev2"]
 browsers = ["Chrome", "firefox"]
 
-FAIL_PROBABILITY = 0.9  # probability each generated login is an authentication FAILURE (for demo)
+FAIL_PROBABILITY = 0.3  # probability each generated login is an authentication FAILURE (for demo)
 LOCK_ON_SCORE_THRESHOLD = 70
 SEND_EMAIL_ON_LOCK = True  # sends email if set as true
 
