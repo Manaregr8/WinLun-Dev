@@ -4,8 +4,6 @@
 With the rise of remote work and cloud services, attackers increasingly use stolen credentials to log in from unusual locations, devices, or times. Traditional security systems often fail to detect such subtle anomalies.  
 This project provides an **AI/ML-powered anomaly detection system** that analyzes login patterns (geo-location, device fingerprinting, login time, and behavioral features) to detect, flag, and alert suspicious logins in real-time.
 
-Built during a hackathon, the solution is designed for **fast prototyping**, **hackathon demo readiness**, and **practical real-world extension**.
-
 ---
 
 ## Problem Statement
