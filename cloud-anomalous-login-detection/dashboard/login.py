@@ -36,6 +36,7 @@ html = f"""
     </div>
 
     <script>
+    
       async function fetchClientIP() {{
         try {{
           const r = await fetch('https://api.ipify.org?format=json');
@@ -74,27 +75,27 @@ html = f"""
         const now = new Date().toISOString();
 
         // Try to get geolocation (user will be prompted; optional)
-        let geo = null;
-        try {{
-          geo = await new Promise((resolve) => {{
-            if (!navigator.geolocation) return resolve(null);
-            let handled = false;
-            navigator.geolocation.getCurrentPosition(pos => {{
-              if (handled) return;
-              handled = true;
-              resolve({{ latitude: pos.coords.latitude, longitude: pos.coords.longitude, accuracy: pos.coords.accuracy }});
-            }}, err => {{
+        //let geo = null;
+        //try {{
+        //  geo = await new Promise((resolve) => {{
+        //    if (!navigator.geolocation) return resolve(null);
+        //    let handled = false;
+        //    navigator.geolocation.getCurrentPosition(pos => {{
+        //      if (handled) return;
+        //      handled = true;
+        //      resolve({{ latitude: pos.coords.latitude, longitude: pos.coords.longitude, accuracy: pos.coords.accuracy }});
+        //    }}, err => {{
               // permission denied or other error
-              if (handled) return;
-              handled = true;
-              resolve(null);
-            }}, {{ timeout: 5000 }});
-            // fallback after 5s
-            setTimeout(() => {{ if (!handled) {{ handled = true; resolve(null); }} }}, 5000);
-          }});
-        }} catch(e) {{
-          geo = null;
-        }}
+        //      if (handled) return;
+        //      handled = true;
+        //      resolve(null);
+        //    }}, {{ timeout: 5000 }});
+             // fallback after 5s
+        //     setTimeout(() => {{ if (!handled) {{ handled = true; resolve(null); }} }}, 5000);
+        //  }});
+        // }} catch(e) {{
+        //   geo = null;
+        // }}
 
         // Optional fingerprint step: uncomment & adapt if you host fingerprint.js
         // const fingerprint = await runFingerprintLib();
@@ -106,7 +107,7 @@ html = f"""
           device_id: platform || 'unknown',  // best-effort
           browser: ua || 'unknown',
           language: language,
-          geo: geo,
+          //geo: geo,
           // fingerprint: fingerprint
           // NOTE: we include password below; if you don't want to send password to ingest,
           // remove it and instead send an auth-only endpoint. For simulation it's included.
@@ -114,7 +115,7 @@ html = f"""
         }};
 
         statusEl.textContent = 'Sending login event to server…';
-
+        
         try {{
           const resp = await fetch("{API_URL}", {{
             method: 'POST',
