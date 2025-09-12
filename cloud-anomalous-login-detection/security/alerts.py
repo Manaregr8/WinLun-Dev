@@ -3,8 +3,8 @@ from email.mime.text import MIMEText
 
 smtp_server = "smtp.gmail.com"
 smtp_port = 587
-smtp_user = "<your_ip>"
-smtp_pass = "<your-password>" # change this later as this should be kept private
+smtp_user = "lakshyajuneja22@gmail.com"
+smtp_pass = "eipg nlkq prge sssk" # change this later as this should be kept private
 
 alert_receiver = "lakshyajuneja925@gmail.com"
 
