@@ -67,6 +67,15 @@ Our system combines **synthetic data generation, ML-based anomaly detection, and
      +---------------------+              +----------------------+
      | Alerts & Dashboard  |              |    Audit Logs        |
      +---------------------+              +----------------------+
+```
+
+### Features
+- User and Entity Behavioral Analytics (UEBA): Tracks user logins, devices, IP addresses, and activity rates over time to profile typical behavior.
+- Anomaly Detection Engine: Flags logins deviating from established baselines, e.g., impossible travel, risky IPs, multiple failed attempts, and unusual device/location access.
+- Machine Learning Support: Implements and benchmarks algorithms like Logistic Regression, Random Forest, SVMs, and Neural Networks for login risk prediction.
+- Customizable Alerts: Triggers security notifications for anomalous login events based on configurable thresholds.
+- Scalable Architecture: Designed for cloud environments with support for integration into major cloud security platforms.
+- Sample Dataset & Notebooks: Includes datasets simulating real login scenarios and Jupyter notebooks for model analysis.
 
 
 
