@@ -20,7 +20,7 @@ API_URL = "http://localhost:8000"
 POLL_INTERVAL_SECONDS = 3
 AUTH_DEMO_PASSWORD = "test123"  # demo password that counts as successful login
 LOCK_ON_SCORE_THRESHOLD = 70
-SEND_EMAIL_ON_LOCK = True
+SEND_EMAIL_ON_LOCK = False
 
 # -------------------------
 # Helpers
