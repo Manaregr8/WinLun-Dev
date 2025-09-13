@@ -92,7 +92,7 @@ Our system combines **synthetic data generation, ML-based anomaly detection, and
 ### FLOW
  - user tries to log in (in a malicious way)
  - Problem 1 -> they try to bruteforce and  to bypass the rate limitations.
- - Solution -> bruteforce is detected by the AI and the rule engine, the score is averaged and an accurate call is made to lock the user out, now even if they enters the correct password in their 100th attempt (for example), they cant log in
+ - Solution -> bruteforce is detected by the AI and the rule engine, the score is averaged and an accurate call is made to lock the user out, now even if they enter the correct password in their 100th attempt (for example), they cant log in
  - problem 2 -> they randomly try to attempt a login from there device and a foreign location or maybe they have a vpn enabled so that they dont get caught. 
  - Solution -> The rule engine and the AI detects this in 3 ways currently (will be scaled and strengthened to add more mechanisms)
       - 1> impossible travel : legit user logs in from New Delhi,india but the malicious one tries to log in from a very diff location like chicago or maybe from somewhere in meghalaya.
